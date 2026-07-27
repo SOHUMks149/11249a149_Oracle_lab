@@ -24,7 +24,7 @@ SQL> desc student
  Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
  REGNO                                              CHAR(10)
- NAME                                               CHAR(50)
+ NAME                                               VARCHAR2(50)
  DOB                                                DATE
  COURSENAME                                         CHAR(5)
  DEPTNAME                                           CHAR(15)
@@ -38,7 +38,7 @@ SQL> desc student1
  Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
  REGNO                                              CHAR(10)
- NAME                                               CHAR(50)
+ NAME                                               VARCHAR2(50)
  DOB                                                DATE
  COURSENAME                                         CHAR(5)
  DEPTNAME                                           CHAR(15)
@@ -52,7 +52,7 @@ SQL> desc student2
  Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
  REGNO                                              CHAR(10)
- NAME                                               CHAR(30)
+ NAME                                               VARCHAR2(30)
  DOB                                                DATE
  COURSENAME                                         CHAR(5)
  DEPTNAME                                           CHAR(15)
