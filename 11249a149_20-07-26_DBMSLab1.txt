@@ -44,7 +44,7 @@ SQL> desc student1
  DEPTNAME                                           CHAR(15)
  YEAR                                               NUMBER(2)
 
-SQL> create table student2 as select regno,name,DOB from student;
+SQL> create table student2 as select RegNo,Name,DOB,CourseName,DeptName from student;
 
 Table created.
 
