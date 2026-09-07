@@ -1,0 +1,136 @@
+Enter user-name: A149@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> create table student7
+  2  (
+  3  student_ID number(5) Primary Key,
+  4  student_name varchar2(30),
+  5  department varchar(20),
+  6  marks number(3)
+  7  );
+
+Table created.
+
+SQL> insert into student7 values(101,'ARUN','CSE',85);
+
+1 row created.
+
+SQL> insert into student7 values(102,'Bala','ECE',78);
+
+1 row created.
+
+SQL> insert into student7 values(103,'DIVYA','IT',92);
+
+1 row created.
+
+SQL> insert into student7 values(104,'KAVI','CSE',88);
+
+1 row created.
+
+SQL> insert into student7 values(105,'RAVI','ECE',81);
+
+1 row created.
+
+SQL> insert into student7 values(106,'SURESH','IT',95);
+
+1 row created.
+
+SQL> select count(*) as Total_students from student7;
+
+TOTAL_STUDENTS
+--------------
+             6
+
+SQL> select sum(marks) as Total_marks from student7;
+
+TOTAL_MARKS
+-----------
+        519
+
+SQL> select avg(marks) as Average_marks from student7;
+
+AVERAGE_MARKS
+-------------
+         86.5
+
+SQL> select max(marks) as Highest_mark from student7;
+
+HIGHEST_MARK
+------------
+          95
+
+SQL> select min(marks) as Lowest_mark from student7;
+
+LOWEST_MARK
+-----------
+         78
+
+SQL> select department,avg(marks) as Avg_marks from student7 Group by department;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+IT                         93.5
+CSE                        86.5
+ECE                        79.5
+
+SQL> select department,count(*) as Total_students from student7 Group by department;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+IT                                2
+CSE                               2
+ECE                               2
+
+SQL> select department, max(marks) as Max_marks from student7 Group by department;
+
+DEPARTMENT            MAX_MARKS
+-------------------- ----------
+IT                           95
+CSE                          88
+ECE                          81
+
+SQL> selct department, Avg(marks) as Avg_marks from student7 Group by department Having Avg(marks)>85;
+SP2-0734: unknown command beginning "selct depa..." - rest of line ignored.
+SQL>  select department, Avg(marks) as Avg_marks from student7 Group by department Having Avg(marks)>85;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+IT                         93.5
+CSE                        86.5
+
+SQL> select department, count(*) as Total_students from student7 Group by department Having count(*) > 1;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+IT                                2
+CSE                               2
+ECE                               2
+
+SQL> select department, count(*) as No_Of_Students,Avg(marks) as Avg_marks , Max(marks) as Highest_mark from student7 Group by department Having Avg(marks)>80;
+
+DEPARTMENT           NO_OF_STUDENTS  AVG_MARKS HIGHEST_MARK
+-------------------- -------------- ---------- ------------
+IT                                2       93.5           95
+CSE                               2       86.5           88
+
+SQL> select * from student7;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+       101 ARUN                           CSE                          85
+       102 Bala                           ECE                          78
+       103 DIVYA                          IT                           92
+       104 KAVI                           CSE                          88
+       105 RAVI                           ECE                          81
+       106 SURESH                         IT                           95
+
+6 rows selected.
+
+SQL>commit;
+
+Commit complete.
+
+SQL>
