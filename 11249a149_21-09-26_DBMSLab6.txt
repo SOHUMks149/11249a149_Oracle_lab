@@ -1,0 +1,75 @@
+Enter user-name: A149@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> select * from student7;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+       101 ARUN                           CSE                          85
+       102 Bala                           ECE                          78
+       103 DIVYA                          IT                           92
+       104 KAVI                           CSE                          88
+       105 RAVI                           ECE                          81
+       106 SURESH                         IT                           95
+
+6 rows selected.
+
+SQL> Grant select on student7 to scott;
+
+Grant succeeded.
+
+SQL> Grant select , Insert, Update on student7 to scott;
+
+Grant succeeded.
+
+SQL> Revoke Insert on student7 from scott;
+
+Revoke succeeded.
+
+Insert into student7 values(107,'Priya','CSE',89);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+Insert into student7 values(108,'Rahul','ECE',76);
+
+1 row created.
+
+SQL> Savepoint sp1;
+
+Savepoint created.
+
+SQL> Insert into student7 values(109,'Anu','IT',91);
+
+1 row created.
+
+SQL> Rollback to sp1;
+
+Rollback complete.
+
+SQL> select * from student7;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+       101 ARUN                           CSE                          85
+       102 Bala                           ECE                          78
+       103 DIVYA                          IT                           92
+       104 KAVI                           CSE                          88
+       105 RAVI                           ECE                          81
+       106 SURESH                         IT                           95
+       107 Priya                          CSE                          89
+       108 Rahul                          ECE                          76
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
